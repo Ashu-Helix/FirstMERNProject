@@ -1,0 +1,32 @@
+.contact_info_item{
+    box-shadow: 0.5px 0.5px 1px 1px #888888;
+}
+
+.contact_form_title{
+    font-weight: 800;
+    text-align: left;
+}
+
+.input_field{
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+}
+
+.contact_form_message{
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+}
+
+.contact_submit_button{
+    border: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #75bcff;
+    color: #fff;
+    font-weight: 800;
+    border-radius: 5px;
+}

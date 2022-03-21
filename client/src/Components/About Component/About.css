@@ -1,0 +1,27 @@
+.about_container{
+    width: auto;
+    height: 90%;
+}
+
+.name_title{
+    font-weight: 700;
+}
+
+.work_title{
+    color: #034392;
+    font-weight: 800;
+}
+
+.subTitle{
+    font-weight: 800;
+    color: #4293f5;
+}
+
+.subTitle_info{
+    font-weight: 700;
+}
+
+.card_layout{
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 2px #888888;
+}

@@ -1,0 +1,20 @@
+.home-page{
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #c2daff 50%, #fff 50%);
+}
+
+.home-div{
+    text-align: center;
+}
+
+.home-div p{
+    font-weight: 1000;
+    color: #0f0085;
+}
+
+.home-div h1{
+    font-weight: 700;
+}
