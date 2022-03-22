@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './Contact.css';
+import { UserContext } from '../../App';
+
 const Contact = () => {
+  const { setNavStatus } = useContext(UserContext);
   const [ userData, setUserData ] = useState({ name:"", email:"", phno:"", message:""});
   let getUserData = async() =>{
     try{
@@ -8,6 +11,7 @@ const Contact = () => {
       let userData = await response.json();
       setUserData({ name: userData.name, email: userData.email, phno: userData.phno});
     }catch(err){
+      setNavStatus({type:"USER", payload:true /*Extra Info with type*/});
       console.log(err);
     }
   };

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import personImg from './user.png';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './About.css';
 // import axios from 'axios';
 
 const About = () => {
+  const { setNavStatus } = useContext(UserContext);
   const navigate = useNavigate();
   const [userData, setUserData] = useState({});
   let callAboutRoute = async () =>{
@@ -23,12 +25,14 @@ const About = () => {
         console.log(data);
 
         if(response.status !== 200){
+         
           throw new Error(response.error);
         }else{
           setUserData({id: data._id, name: data.name, email: data.email, work: data.work, phno: data.phno});
         }
 
         }catch(err){
+          setNavStatus({type:"USER", payload:true /*Extra Info with type*/});
           console.log(err);
           navigate('/login');
         }

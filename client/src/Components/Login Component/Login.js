@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import loginPic from './login-img.jpg';
 import './Login.css';
+import { UserContext } from '../../App';
 
 const Login = () => {
+  const { setNavStatus } = useContext(UserContext);
   const navigate = useNavigate();
   const [ loginObj , setFields ] = useState({ email:"", password: ""});
 
@@ -30,6 +32,7 @@ const Login = () => {
     }else if(response.status === 400 || !getResData){
         alert("Login Denied");
     }else{
+        setNavStatus({type:"USER", payload:false /*Extra Info with type*/});
         alert("Login Successful");
         navigate('/');
     }

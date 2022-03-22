@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './Home.css';
+import { UserContext } from '../../App';
 
 const Home = () => {
+  const { setNavStatus } = useContext(UserContext);
   const [userName, setName] = useState();
 
   let getUserData = async () =>{
-    let response = await fetch('/getData',{ method:"GET" });
-    let data = await response.json();
-    setName(data.name);
+    try{
+      let response = await fetch('/getData',{ method:"GET" });
+      if(response.status === 401){
+        throw new Error;
+      }
+      let data = await response.json();
+      setName(data.name);
+    }catch(error){
+      setNavStatus({type:"USER", payload:true /*Extra Info with type*/});
+      console.log(error);
+    }
   };
 
   useEffect(()=>{
